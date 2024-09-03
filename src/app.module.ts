@@ -8,14 +8,14 @@ import { AppController } from './app.controller';
   controllers: [AppController],
   providers: [
     {
-      provide: 'PRODUCTS_SERVICE',
+      provide: 'ORDERS_SERVICE',
       inject: [ConfigService],
       useFactory: (configService: ConfigService) =>
         ClientProxyFactory.create({
           transport: Transport.TCP,
           options: {
-            host: configService.get('PRODUCTS_SERVICE_HOST'),
-            port: configService.get('PRODUCTS_SERVICE_PORT'),
+            host: configService.get('ORDERS_SERVICE_HOST'),
+            port: configService.get('ORDERS_SERVICE_PORT'),
           },
         }),
     },
