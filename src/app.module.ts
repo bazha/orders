@@ -10,7 +10,7 @@ import { AppService } from './app.service';
         name: 'ORDER_SERVICE',
         transport: Transport.RMQ,
         options: {
-          urls: ['amqp://myuser:mypassword@rabbitmq:5672'],
+          urls: [process.env.RABBITMQ_URL],
           queue: 'orders_queue',
           queueOptions: {
             durable: true,
