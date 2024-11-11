@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -15,6 +16,18 @@ import { AppService } from './app.service';
           queueOptions: {
             durable: true,
           },
+        },
+      },
+      {
+        name: 'PRODUCT_GRPC_SERVICE',
+        transport: Transport.GRPC,
+        options: {
+          url: 'products:3002',
+          package: 'products',
+          protoPath: join(
+            process.cwd(),
+            './infrastructure/protos/products.proto',
+          ),
         },
       },
     ]),
