@@ -24,7 +24,7 @@ async function bootstrap() {
     options: {
       package: 'orders',
       url: '0.0.0.0:3001',
-      protoPath: join(process.cwd(), './orders/src/orders/proto/orders.proto'),
+      protoPath: join(__dirname, '../src/protos/orders.proto'),
     },
   });
 
