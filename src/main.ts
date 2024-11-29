@@ -29,6 +29,6 @@ async function bootstrap() {
   });
 
   await app.startAllMicroservices();
-  logger.log('App has started');
+  logger.log('Orders microservice has started');
 }
 bootstrap();
