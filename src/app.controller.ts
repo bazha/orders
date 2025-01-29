@@ -3,8 +3,8 @@ import { MessagePattern } from '@nestjs/microservices';
 
 @Controller('orders')
 export class AppController {
-  @MessagePattern('helloWorldMethod')
-  sayHello(data: string): string {
+  @MessagePattern('getOrders')
+  getOrders(data: string): string {
     return data;
   }
 }
